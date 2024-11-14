@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
 function Home() {
+  const [homeData, setHomeData] = useState({});
+
+  useEffect(() => {
+    fetch('http://localhost:3000/home')
+      .then(response => response.json())
+      .then(data => setHomeData(data));
+  }, []);
+
   return (
     <div>
-        <h1>Welcome to Portfolio Builder</h1>
-    
-        <p>
-            This is a simple portfolio builder application. You can add, edit and delete projects from your portfolio
-        </p>
+      <h1>{homeData.welcomeMessage}</h1>
+      <p>{homeData.introduction}</p>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
+
