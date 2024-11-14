@@ -18,7 +18,7 @@ function AddProject({ addProject }) {
     .then(response => response.json())
     .then(data => {
       addProject(data);
-      setTitle(''); // Clear form
+      setTitle(''); 
       setDescription('');
       setImage('');
       setUrl('');
