@@ -1,0 +1,59 @@
+{
+    "home": {
+      "welcomeMessage": "Welcome to my portfolio!",
+      "introduction": "This is where I showcase my skills and projects."
+    },
+    "about": {
+      "name": "John Doe",
+      "bio": "I am a passionate developer with a keen interest in web technologies.",
+      "profileImage": "https://example.com/profile.jpg"
+    },
+    "skills": [
+      {
+        "id": 1,
+        "name": "JavaScript",
+        "level": "Advanced"
+      },
+      {
+        "id": 2,
+        "name": "React",
+        "level": "Intermediate"
+      },
+      {
+        "id": 3,
+        "name": "CSS",
+        "level": "Advanced"
+      }
+    ],
+    "projects": [
+      {
+        "id": 1,
+        "title": "Portfolio Builder",
+        "description": "A React application to create student portfolios.",
+        "image": "https://example.com/project1.jpg",
+        "url": "https://example.com/project1"
+      },
+      {
+        "id": 2,
+        "title": "Todo App",
+        "description": "A simple todo app to track tasks.",
+        "image": "https://example.com/project2.jpg",
+        "url": "https://example.com/project2"
+      }
+    ],
+    "contact": {
+      "email": "john.doe@example.com",
+      "phone": "+1234567890",
+      "address": "123 Main St, Nairobi, Kenya"
+    },
+    "login": {
+      "users": [
+        {
+          "id": 1,
+          "username": "johndoe",
+          "password": "password123"
+        }
+      ]
+    }
+  }
+  
