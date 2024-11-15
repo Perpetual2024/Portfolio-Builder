@@ -4,9 +4,9 @@
     "introduction": "Make a quick portfolio and look like a pro."
   },
   "about": {
-    "name": "Perpetual Akinyi",
-    "bio": "kkk",
-    "profileImage": "ko"
+    "name": "",
+    "bio": "",
+    "profileImage": ""
   },
   "skills": [
     {
@@ -57,7 +57,7 @@
     "users": [
       {
         "id": 1,
-        "username": "johndoe",
+        "username": "Perpetual",
         "password": "password123"
       }
     ]
