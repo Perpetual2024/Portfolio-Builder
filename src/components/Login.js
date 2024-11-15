@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom/dist';
+
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -19,9 +21,11 @@ function Login() {
         }
       });
   }
+  const navigate = useNavigate();
 
   const styles = {
     container: {
+      backgroundImage: `url(' https://stacycorwin.com/wp-content/uploads/2018/12/sunrise-sunset.jpg')` , 
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -90,8 +94,11 @@ function Login() {
         >
           Login
         </button>
-        {message && <p style={styles.message}>{message}</p>}
+        {message && <p style={styles.message}>{message}</p>}      <button style={styles.button} onClick={() => navigate('/about')}> Next </button>
+
+
       </form>
+
     </div>
   );
 }

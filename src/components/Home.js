@@ -13,7 +13,7 @@ function Home() {
 
   const styles = 
   { home: 
-    { backgroundImage: `url(' https://stacycorwin.com/wp-content/uploads/2018/12/sunrise-sunset.jpg')` , 
+    { backgroundImage: `url(' http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcTlB4oYLZO9CqtWbJRAjtUQd5Zgrq2yhLpf1qeN9Sr2oUfnng58PfEXf1MGURaYr58VJXFLh2rNGwoNgB2aDB0')` , 
        backgroundSize: 'cover', backgroundPosition: 'center',
         height: '100vh', 
         display: 'flex', 
@@ -41,6 +41,7 @@ function Home() {
     <div className='home-container' style={styles.home}>
       <h1 className='header' style={styles.welcomeMessage}>{homeData.welcomeMessage}</h1>
       <p className='header-info' style={styles.introduction}>{homeData.introduction}</p>
+      
       <button style={styles.button} onClick={() => navigate('/login')}> Get Started </button>
     </div>
   );
