@@ -94,6 +94,16 @@ function NavBar() {
             Contact
           </Link>
         </li>
+        <li>
+          <Link
+          to="/portfolio"
+          style={styles.navItem}
+          onMouseEnter={(e) => e.target.style.backgroundColor = styles.hoverEffect.backgroundColor}
+          onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+          >
+            Portfolio
+          </Link>
+        </li>
       </ul>
     </nav>
   );

@@ -9,6 +9,7 @@ import Contacts from './components/Contacts';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import NewProject from './components/NewProject';
+import Portfolio from './components/Portfolio';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -34,6 +35,7 @@ function App() {
         <Route path="/contact" element={<Contacts />} />
         <Route path="/login" element={<Login />} />
         <Route path="/add-project" element={<NewProjectProject addProject={NewProject} />} />
+        <Route path="/portfolio" element={<Portfolio projects={projects} />} />
       </Routes>
     </Router>
   );

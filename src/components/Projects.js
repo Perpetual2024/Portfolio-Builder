@@ -35,7 +35,7 @@ function Projects() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px' , backgroundImage : `url('http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcTlB4oYLZO9CqtWbJRAjtUQd5Zgrq2yhLpf1qeN9Sr2oUfnng58PfEXf1MGURaYr58VJXFLh2rNGwoNgB2aDB0') `}  }>
       <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>My Projects</h1>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {projects.map(project => (
