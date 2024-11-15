@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom/dist';
 function Home() {
   const [homeData, setHomeData] = useState({});
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3000/home')
       .then(response => response.json())
       .then(data => setHomeData(data));
   }, []);
+  const navigate = useNavigate();
 
-  const toggleTheme = () => { setIsDarkMode(!isDarkMode); };
 
   const styles = 
   { home: 
@@ -26,13 +25,23 @@ function Home() {
           padding: '20px' 
         },
        welcomeMessage: { 
-        fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }, introduction: { fontSize: '1.5rem', lineHeight: '1.5', fontStyle: 'italic' } };
+        fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }, 
+        introduction: { fontSize: '1.5rem', lineHeight: '1.5', fontStyle: 'italic' 
+
+        },
+        button: {
+          padding: '10px 20px',  
+          border: 'none', borderRadius: '5px',
+           cursor: 'pointer', marginTop: '20px',
+            transition: 'background-color 0.3s ease'
+        }
+       };
 
   return (
     <div className='home-container' style={styles.home}>
-      <button style={styles.button} onClick={toggleTheme}> Switch to {isDarkMode ? 'Light' : 'Dark'} Mode </button>
       <h1 className='header' style={styles.welcomeMessage}>{homeData.welcomeMessage}</h1>
       <p className='header-info' style={styles.introduction}>{homeData.introduction}</p>
+      <button style={styles.button} onClick={() => navigate('/login')}> Get Started </button>
     </div>
   );
 }
