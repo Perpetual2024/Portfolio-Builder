@@ -6,7 +6,7 @@ function About() {
   const [formData, setFormData] = useState({ name: '', bio: '', profileImage: '' });
 
   useEffect(() => {
-    fetch('http://localhost:3000/about')
+    fetch('https://backend-portfolio-builder.onrender.com/about')
       .then(response => response.json())
       .then(data => setAboutData(data));
   }, []);
@@ -18,7 +18,7 @@ function About() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/about', {
+    fetch('https://backend-portfolio-builder.onrender.com/about', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),

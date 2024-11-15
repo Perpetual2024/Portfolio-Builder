@@ -6,7 +6,7 @@ function Skills() {
   const [formData, setFormData] = useState({ name: '', level: '' });
 
   useEffect(() => {
-    fetch('http://localhost:3000/skills')
+    fetch('https://backend-portfolio-builder.onrender.com/skills')
       .then(response => response.json())
       .then(data => setSkills(data));
   }, []);
@@ -18,7 +18,7 @@ function Skills() {
 
   const handleSubmit=(e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/skills', {
+    fetch('https://backend-portfolio-builder.onrender.com/skills', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),

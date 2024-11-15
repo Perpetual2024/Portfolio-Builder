@@ -10,7 +10,7 @@ function AddProject({ addProject }) {
     event.preventDefault();
     const newProject = { title, description, image, url };
     
-    fetch('http://localhost:3000/projects', {
+    fetch('https://backend-portfolio-builder.onrender.com/projects', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newProject),

@@ -17,7 +17,7 @@ function Projects() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/projects', {
+    fetch('https://backend-portfolio-builder.onrender.com/projects', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -28,7 +28,7 @@ function Projects() {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/projects/${id}`, {
+    fetch(`https://backend-portfolio-builder.onrender.com/projects/${id}`, {
       method: 'DELETE',
     })
     .then(() => setProjects(projects.filter(project => project.id !== id)));

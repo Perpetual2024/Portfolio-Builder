@@ -4,7 +4,7 @@ function Home() {
   const [homeData, setHomeData] = useState({});
 
   useEffect(() => {
-    fetch('http://localhost:3000/home')
+    fetch('https://backend-portfolio-builder.onrender.com/home')
       .then(response => response.json())
       .then(data => setHomeData(data));
   }, []);

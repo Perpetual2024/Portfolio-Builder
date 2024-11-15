@@ -8,7 +8,7 @@ function Login() {
   function handleLogin(event) {
     event.preventDefault();
 
-    fetch('http://localhost:3000/login')
+    fetch('https://backend-portfolio-builder.onrender.com/login')
       .then(response => response.json())
       .then(data => {
         const user = data.users.find(user => user.username === username && user.password === password);

@@ -14,7 +14,7 @@ function App() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/projects')
+    fetch('https://backend-portfolio-builder.onrender.com/projects')
       .then(response => response.json())
       .then(data => setProjects(data));
   }, []);

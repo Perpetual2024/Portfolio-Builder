@@ -6,7 +6,7 @@ function Contact() {
   const [formData, setFormData] = useState({ email: '', phone: '', address: '' });
 
   useEffect(() => {
-    fetch('http://localhost:3000/contact')
+    fetch('https://backend-portfolio-builder.onrender.com/contact')
       .then(response => response.json())
       .then(data => setContact(data));
   }, []);
@@ -18,7 +18,7 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/contact', {
+    fetch('https://backend-portfolio-builder.onrender.com/contact', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
