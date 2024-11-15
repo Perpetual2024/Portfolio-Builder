@@ -5,7 +5,7 @@ function Projects() {
   const [projects, setProjects] = useState([]);
   const [formData, setFormData] = useState({ title: '', description: '', image: '', url: '' });
 
-  useEffect(() => {
+ useEffect (() => {
     fetch('http://localhost:3000/projects')
       .then(response => response.json())
       .then(data => setProjects(data));
@@ -41,7 +41,7 @@ function Projects() {
           </li>
         ))}
       </ul>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={}>
         <input 
           type="text" 
           name="title" 
