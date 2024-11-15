@@ -1,7 +1,7 @@
 {
   "home": {
-    "welcomeMessage": "Welcome to my portfolio!",
-    "introduction": "This is where I showcase my skills and projects."
+    "welcomeMessage": "Welcome to Portfolio Builder",
+    "introduction": "Make a quick portfolio and look like a pro."
   },
   "about": {
     "name": "",
@@ -39,9 +39,6 @@
       "description": "A simple todo app to track tasks.",
       "image": "https://example.com/project2.jpg",
       "url": "https://example.com/project2"
-    },
-    {
-      "id": "70b1"
     },
     {
       "id": "9833",
