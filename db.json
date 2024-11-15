@@ -4,9 +4,9 @@
     "introduction": "This is where I showcase my skills and projects."
   },
   "about": {
-    "name": "John Doe",
-    "bio": "I am a passionate developer with a keen interest in web technologies.",
-    "profileImage": "https://example.com/profile.jpg"
+    "name": "",
+    "bio": "",
+    "profileImage": ""
   },
   "skills": [
     {

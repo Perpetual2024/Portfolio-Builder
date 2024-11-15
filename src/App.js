@@ -7,8 +7,8 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contacts from './components/Contacts';
 import Login from './components/Login';
-import NavBar from './components/NavBar';
-import AddProject from './components/AddProject';
+import Navbar from './components/Navbar';
+import NewProject from './components/NewProject';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -19,21 +19,21 @@ function App() {
       .then(data => setProjects(data));
   }, []);
 
-  function addProject(newProject) {
+  function NewProjectProject(newProject) {
     setProjects([...projects, newProject]);
   }
 
   return (
     <Router>
-      <NavBar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contacts />} />
+        <Route path="/contacts" element={<Contacts />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/add-project" element={<AddProject addProject={addProject} />} />
+        <Route path="/add-project" element={<NewProjectProject addProject={NewProject} />} />
       </Routes>
     </Router>
   );
