@@ -25,3 +25,11 @@ This project is a portfolio builder application that allows users to create and 
 - Local data deletion for profile information.
 - Project section with project cards and add project functionality.
 - Skills section with skill cards and add skill functionality.
+- Contact section with contact form and email sending functionality.
+
+## Technologies
+- React
+- React Router
+- UseNavigation
+- Fetch API for data fetching and sending
+
