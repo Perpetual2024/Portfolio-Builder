@@ -26,7 +26,9 @@ function About() {
     .then(response => response.json())
     .then(data => setAboutData(data));
   };
-  const handleDelete = () => {}
+  
+  const handleDelete = () => { setAboutData({ name: '', bio: '', profileImage: '' }); };
+  
 
   const styles = {
     about: {
