@@ -16,7 +16,7 @@ function Skills() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const = (e) => {
+  const = handleSubmit=(e) => {
     e.preventDefault();
     fetch('http://localhost:3000/skills', {
       method: 'POST',
