@@ -92,7 +92,7 @@ function About() {
   return (
     <div style={styles.about}>
       <h1>About Me</h1>
-      <div style={styles.section}>
+      <div style={styles.section}>About Me
         <img src={aboutData.profileImage} alt="Profile" style={styles.profileImage} />
         <p><strong>Name:</strong> {aboutData.name}</p>
         <p><strong>Bio:</strong> {aboutData.bio}</p>

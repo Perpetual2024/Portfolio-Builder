@@ -25,7 +25,7 @@ function Home() {
           padding: '20px' 
         },
        welcomeMessage: { 
-        fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }, 
+        fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px', fontSize: ' 100px' }, 
         introduction: { fontSize: '1.5rem', lineHeight: '1.5', fontStyle: 'italic' 
 
         },
@@ -41,6 +41,11 @@ function Home() {
     <div className='home-container' style={styles.home}>
       <h1 className='header' style={styles.welcomeMessage}>{homeData.welcomeMessage}</h1>
       <p className='header-info' style={styles.introduction}>{homeData.introduction}</p>
+      <p  style={{fontFamily: 'fantasy', fontSize: '2rem'}}>
+
+Unleash Your Potential, Build Your Future
+
+Are you a student looking to stand out in today’s competitive world? The Student Portfolio Builder app is your one-stop solution to showcase your skills, achievements, and projects like a pro! Whether you're applying for internships, jobs, or academic programs</p>
       
       <button style={styles.button} onClick={() => navigate('/login')}> Get Started </button>
     </div>

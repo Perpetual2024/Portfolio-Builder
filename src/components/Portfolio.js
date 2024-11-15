@@ -35,13 +35,12 @@ function Portfolio() {
         <p>{home.introduction}</p>
       </section>
       
-      <section style={styles.section}>
+      
         <img src={about.profileImage} alt={about.name} style={styles.profileImage} />
         <h1>{about.name}</h1>
         <p>{about.bio}</p>
-      </section>
       
-      <section style={styles.section}>
+      
         <h2>Skills</h2>
         <ul>
           {skills.map(skill => (
@@ -50,9 +49,9 @@ function Portfolio() {
             </li>
           ))}
         </ul>
-      </section>
       
-      <section style={styles.section}>
+      
+      
         <h2>Projects</h2>
         <ul>
           {projects.map(project => (
@@ -64,7 +63,7 @@ function Portfolio() {
             </li>
           ))}
         </ul>
-      </section>
+      
     </div>
   );
 }
