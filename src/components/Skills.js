@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Skills.css';
+
 
 function Skills() {
   const [skills, setSkills] = useState([]);
@@ -16,7 +16,7 @@ function Skills() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const = handleSubmit=(e) => {
+  const handleSubmit=(e) => {
     e.preventDefault();
     fetch('http://localhost:3000/skills', {
       method: 'POST',

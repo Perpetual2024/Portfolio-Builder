@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './Projects.css';
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -41,7 +40,7 @@ function Projects() {
           </li>
         ))}
       </ul>
-      <form onSubmit={}>
+      <form onSubmit={handleSubmit}>
         <input 
           type="text" 
           name="title" 

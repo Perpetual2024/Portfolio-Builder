@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 function Home() {
   const [homeData, setHomeData] = useState({});
 
