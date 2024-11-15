@@ -78,6 +78,12 @@ function About() {
       cursor: 'pointer',
       transition: 'background-color 0.3s ease',
     },
+    deleteButton: { padding: '10px', 
+      borderRadius: '5px', 
+      border: 'none', 
+      
+      color: 'red', fontSize: '1rem', 
+      cursor: 'pointer', },
     buttonHover: {
       backgroundColor: '#0056b3',
     },
@@ -90,6 +96,10 @@ function About() {
         <img src={aboutData.profileImage} alt="Profile" style={styles.profileImage} />
         <p><strong>Name:</strong> {aboutData.name}</p>
         <p><strong>Bio:</strong> {aboutData.bio}</p>
+        <button 
+        style={styles.deleteButton} 
+        onMouseLeave={(e) => e.target.style.backgroundColor = styles.deleteButton.backgroundColor} onClick={handleDelete} > 
+        Delete Profile </button>
       </div>
       <form style={styles.form} onSubmit={handleSubmit}>
         <input 
