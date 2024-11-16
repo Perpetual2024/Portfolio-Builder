@@ -33,3 +33,23 @@ This project is a portfolio builder application that allows users to create and 
 - UseNavigation
 - Fetch API for data fetching and sending
 
+## Setup
+1. Clone the repository.
+2. Run `npm install` to install dependencies.
+3. Run `npm start` to start the application.
+4. Open [http://localhost:3000](http://localhost:3000) to view
+the application in your browser.
+
+## Components
+- `Hero`: Hero section component.
+- `Navbar`: Top navigation bar component.
+- `Login`: User login component.
+- `About`: About section component.
+- `Project`: Project section component.
+- `Skill`: Skill section component.
+- `Contact`: Contact section component.
+- `NewProject`: Project card component.
+
+## Deployment
+This project has been deployed to Vercel. You can view the live application at [https://portfolio-builder-app.vercel.app/](https://portfolio-builder-app.vercel.app
+This project also has a backened API deployed on . 
