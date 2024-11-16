@@ -3,7 +3,7 @@
 This project is a portfolio builder application that allows users to create and manage their personal portfolio, including sections for home, about, projects, skills, contact information and a portfolio where all the data is going to be stored.
 
 ## ScreenShot
-! [my screenshot of the app](Portfolio%20builder%20copy.png)
+! [screenshot of the app](portfolio-builder.png)
 
 
 
