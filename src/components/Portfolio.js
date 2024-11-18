@@ -5,6 +5,12 @@ function Portfolio() {
   const [about, setAbout] = useState({});
   const [skills, setSkills] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+
+  function handleDarkMode(){
+    setIsDarkMode(!isDarkMode);
+  }
 
   useEffect(() => {
     // Fetch home data
@@ -28,7 +34,11 @@ function Portfolio() {
       .then(data => setProjects(data));
   }, []);
 
+    
+
   return (
+    <div className={isDarkMode ? 'dark-mode' : ''}>
+      <button onClick={handleDarkMode}>Toggle Dark Mode</button>
     <div style={styles.portfolio}>
       <section style={styles.section}>
         <h1>{home.welcomeMessage}</h1>
@@ -64,6 +74,7 @@ function Portfolio() {
           ))}
         </ul>
       
+    </div>
     </div>
   );
 }

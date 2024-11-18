@@ -53,8 +53,8 @@
     "users": [
       {
         "id": 1,
-        "username": "Perpetual",
-        "password": "password123"
+        "username": "",
+        "password": ""
       }
     ]
   }

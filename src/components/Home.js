@@ -25,7 +25,7 @@ function Home() {
           padding: '20px' 
         },
        welcomeMessage: { 
-        fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px', fontSize: ' 100px' }, 
+        fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }, 
         introduction: { fontSize: '1.5rem', lineHeight: '1.5', fontStyle: 'italic' 
 
         },
