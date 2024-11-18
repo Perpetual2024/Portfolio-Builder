@@ -1,35 +1,39 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom/dist';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track successful login
 
-function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // React Router navigation
 
-  function handleLogin(event) {
-    event.preventDefault();
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-    fetch('https://backend-portfolio-builder.onrender.com/login')
-      .then(response => response.json())
-      .then(data => {
-        const user = data.users.find(user => user.username === username && user.password === password);
-        if (user) {
-          setMessage('Login successful!');
-        } else {
-          setMessage('Invalid username or password.');
-        }
-      });
-  }
-  const navigate = useNavigate();
+    if (!username.trim() || !password.trim()) {
+      setMessage("Error: Please insert login details.");
+      setIsLoggedIn(false);
+    } else {
+      setMessage("Success: Login details submitted.");
+      setIsLoggedIn(true); // Set login state to true
+      // Additional logic to handle login can be added here (e.g., API request)
+    }
+  };
+
+  const handleNext = () => {
+    navigate("/about"); // Navigate to the About component
+  };
 
   const styles = {
     container: {
-      backgroundImage: `url(' https://stacycorwin.com/wp-content/uploads/2018/12/sunrise-sunset.jpg')` , 
+      backgroundImage: `url('https://stacycorwin.com/wp-content/uploads/2018/12/sunrise-sunset.jpg')`,
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
+      padding: '2rem',
       backgroundColor: '#f7f7f7',
     },
     form: {
@@ -39,6 +43,8 @@ function Login() {
       borderRadius: '10px',
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
       backgroundColor: 'white',
+      maxWidth: '400px',
+      width: '100%',
     },
     input: {
       padding: '1rem',
@@ -63,44 +69,75 @@ function Login() {
     },
     message: {
       marginTop: '1rem',
+      textAlign: 'center',
       fontSize: '1rem',
-      color: message === 'Login successful!' ? 'green' : 'red',
-    }
+    },
+    error: {
+      color: 'red',
+    },
+    success: {
+      color: 'green',
+    },
   };
 
   return (
     <div style={styles.container}>
       <form style={styles.form} onSubmit={handleLogin}>
-        <h1>Login</h1>
-        <input 
-          type="text" 
-          value={username} 
-          onChange={(e) => setUsername(e.target.value)} 
-          placeholder="Username" 
-          style={styles.input} 
+        <h2>Login</h2>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
+          style={styles.input}
         />
-        <input 
-          type="password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          placeholder="Password" 
-          style={styles.input} 
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          style={styles.input}
         />
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           style={styles.button}
-          onMouseEnter={(e) => e.target.style.backgroundColor = styles.buttonHover.backgroundColor}
-          onMouseLeave={(e) => e.target.style.backgroundColor = styles.button.backgroundColor}
+          onMouseEnter={(e) =>
+            (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)
+          }
+          onMouseLeave={(e) =>
+            (e.target.style.backgroundColor = styles.button.backgroundColor)
+          }
         >
           Login
         </button>
-        {message && <p style={styles.message}>{message}</p>}      <button style={styles.button} onClick={() => navigate('/about')}> Next </button>
-
-
+        {message && (
+          <p
+            style={{
+              ...styles.message,
+              ...(message.startsWith("Error")
+                ? styles.error
+                : styles.success),
+            }}
+          >
+            {message}
+          </p>
+        )}
+        {isLoggedIn && (
+          <button
+            onClick={handleNext}
+            style={{
+              ...styles.button,
+              backgroundColor: '#28a745',
+              onMouseEnter: (e) => e.target.style.backgroundColor = '#1e7e34',
+              onMouseLeave: (e) => e.target.style.backgroundColor = '#28a745',
+            }}
+          >
+            Next
+          </button>
+        )}
       </form>
-
     </div>
   );
-}
+};
 
 export default Login;

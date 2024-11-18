@@ -2,6 +2,10 @@
 ## Overview
 This project is a portfolio builder application that allows users to create and manage their personal portfolio, including sections for home, about, projects, skills, contact information and a portfolio where all the data is going to be stored.
 
+## Author 
+This project was created by [Perpetual Akinyi]
+Find me on [LinkedIn](https://www.linkedin.com/in/perpetual-akinyi-3a3
+
 ## ScreenShot
 ! [screenshot of the app](portfolio-builder.png)
 
