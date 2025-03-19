@@ -28,13 +28,11 @@ const Login = () => {
 
   const styles = {
     container: {
-      backgroundImage: `url('https://stacycorwin.com/wp-content/uploads/2018/12/sunrise-sunset.jpg')`,
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100vh',
+      height: '70vh',
       padding: '2rem',
-      backgroundColor: '#f7f7f7',
     },
     form: {
       display: 'flex',
@@ -42,7 +40,7 @@ const Login = () => {
       padding: '2rem',
       borderRadius: '10px',
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-      backgroundColor: 'white',
+      backgroundColor: 'pink',
       maxWidth: '400px',
       width: '100%',
     },

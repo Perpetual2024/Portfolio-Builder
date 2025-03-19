@@ -37,6 +37,7 @@ function Portfolio() {
     
 
   return (
+    <div style={styles.Portfolio}>
     <div className={isDarkMode ? 'dark-mode' : ''}>
       <button onClick={handleDarkMode}>Toggle Dark Mode</button>
     <div style={styles.portfolio}>
@@ -76,13 +77,17 @@ function Portfolio() {
       
     </div>
     </div>
+    </div>
   );
 }
 
 const styles = {
   portfolio: {
+    
     padding: '20px',
     fontFamily: 'Arial, sans-serif',
+    
+    
   },
   section: {
     marginBottom: '20px',

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import '../Project.css'; // Import the external CSS
 
 function Projects() {
   const [projects, setProjects] = useState([]);
-  const [formData, setFormData] = useState({ title: '', description: '', image: '', url: '' });
+  const [formData, setFormData] = useState({ id: null, title: '', description: '', image: '', url: '' });
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3000/projects')
+    fetch('https://backend-portfolio-builder.onrender.com/projects')
       .then(response => response.json())
       .then(data => setProjects(data));
   }, []);
@@ -17,106 +20,84 @@ function Projects() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://backend-portfolio-builder.onrender.com/projects', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
-    .then(response => response.json())
-    .then(newProject => setProjects([...projects, newProject]));
-    setFormData({ title: '', description: '', image: '', url: '' });
+
+    if (isEditing) {
+      // If editing, send PATCH request
+      fetch(`https://backend-portfolio-builder.onrender.com/projects/${formData.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+        .then(response => response.json())
+        .then(updatedProject => {
+          setProjects(projects.map(proj => (proj.id === updatedProject.id ? updatedProject : proj)));
+          setIsEditing(false);
+        });
+    } else {
+      // If adding, send POST request
+      fetch('https://backend-portfolio-builder.onrender.com/projects', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+        .then(response => response.json())
+        .then(newProject => setProjects([...projects, newProject]));
+    }
+
+    setFormData({ id: null, title: '', description: '', image: '', url: '' });
   };
 
   const handleDelete = (id) => {
     fetch(`https://backend-portfolio-builder.onrender.com/projects/${id}`, {
       method: 'DELETE',
-    })
-    .then(() => setProjects(projects.filter(project => project.id !== id)));
+    }).then(() => setProjects(projects.filter(project => project.id !== id)));
+  };
+
+  const handleEdit = (project) => {
+    setFormData(project);
+    setIsEditing(true);
+  };
+
+  const handleViewProject = (project) => {
+    setSelectedProject(project);
   };
 
   return (
-    <div style={{ padding: '20px' , backgroundImage : `url('http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcTlB4oYLZO9CqtWbJRAjtUQd5Zgrq2yhLpf1qeN9Sr2oUfnng58PfEXf1MGURaYr58VJXFLh2rNGwoNgB2aDB0') `}  }>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>My Projects</h1>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+    <div className="projects-container">
+      <h1>{isEditing ? "Edit Project" : "My Projects"}</h1>
+
+      {/* Selected Project Display */}
+      {selectedProject && (
+        <div className="project-details">
+          <h2>{selectedProject.title}</h2>
+          <img src={selectedProject.image} alt={selectedProject.title} />
+          <p>{selectedProject.description}</p>
+          <a href={selectedProject.url} target="_blank" rel="noopener noreferrer">View Live</a>
+          <button onClick={() => setSelectedProject(null)}>Close</button>
+        </div>
+      )}
+
+      <div className="projects-list">
         {projects.map(project => (
-          <li key={project.id} style={{
-            padding: '20px',
-            backgroundColor: '#f9f9f9',
-            marginBottom: '20px',
-            borderRadius: '10px',
-            position: 'relative'
-          }}>
-            <h2>{project.title}</h2>
-            <img src={project.image} alt={project.title} style={{
-              width: '100%',
-              height: 'auto',
-              borderRadius: '10px'
-            }} />
+          <div key={project.id} className="project-card">
+            <img src={project.image} alt={project.title} className="project-image" />
+            <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a href={project.url} style={{
-              display: 'block',
-              marginTop: '10px',
-              color: '#007bff',
-              textDecoration: 'none'
-            }}>View Project</a>
-            <button onClick={() => handleDelete(project.id)} style={{
-              padding: '10px 20px',
-              backgroundColor: '#ff1744',
-              color: 'white',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              position: 'absolute',
-              top: '10px',
-              right: '10px'
-            }}>Delete</button>
-          </li>
+            <div className="project-buttons">
+              <button className="edit-btn" onClick={() => handleEdit(project)}>Edit</button>
+              <button className="delete-btn" onClick={() => handleDelete(project.id)}>Delete</button>
+              <button className="view-btn" onClick={() => handleViewProject(project)}>View Project</button>
+            </div>
+          </div>
         ))}
-      </ul>
-      <form onSubmit={handleSubmit} style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '10px'
-      }}>
-        <input 
-          type="text" 
-          name="title" 
-          value={formData.title} 
-          onChange={handleChange} 
-          placeholder="Project Title" 
-          style={{ padding: '10px' }}
-        />
-        <textarea 
-          name="description" 
-          value={formData.description} 
-          onChange={handleChange} 
-          placeholder="Project Description" 
-          style={{ padding: '10px' }}
-        />
-        <input 
-          type="text" 
-          name="image" 
-          value={formData.image} 
-          onChange={handleChange} 
-          placeholder="Project Image URL" 
-          style={{ padding: '10px' }}
-        />
-        <input 
-          type="text" 
-          name="url" 
-          value={formData.url} 
-          onChange={handleChange} 
-          placeholder="Project URL" 
-          style={{ padding: '10px' }}
-        />
-        <button type="submit" style={{
-          padding: '10px 20px',
-          backgroundColor: '#007bff',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer'
-        }}>Add Project</button>
+      </div>
+
+      <form onSubmit={handleSubmit} className="project-form">
+        <input type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Project Title" required />
+        <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Project Description" required />
+        <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Project Image URL" required />
+        <input type="text" name="url" value={formData.url} onChange={handleChange} placeholder="Project URL" required />
+        <button type="submit">{isEditing ? "Update Project" : "Add Project"}</button>
       </form>
     </div>
   );
