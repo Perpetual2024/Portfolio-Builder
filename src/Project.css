@@ -13,17 +13,27 @@
   /* Project Cards */
   .projects-list {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: space-between;
   }
   
   .project-card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    width: calc(33.33% - 20px); /* 3 cards per row */
   }
+  
+  @media (max-width: 1024px) {
+    .project-card {
+      width: calc(50% - 20px); /* 2 cards per row */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .project-card {
+      width: 100%; /* 1 card per row */
+    }
+  }
+  
   
   .project-image {
     width: 100%;

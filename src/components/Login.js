@@ -23,7 +23,7 @@ const Login = () => {
   };
 
   const handleNext = () => {
-    navigate("/about"); // Navigate to the About component
+    navigate("/projects"); // Navigate to the About component
   };
 
   const styles = {
