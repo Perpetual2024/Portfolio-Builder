@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <h1>Contact Us</h1>
+        <h2>Contact Us</h2>
         <p>&copy; 2025 Portfolio Builder . All rights reserved.</p>
         <div className="social-links">
           <a

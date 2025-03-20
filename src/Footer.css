@@ -1,10 +1,10 @@
 .footer {
-    display: flex;
+    display: flexbox;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 20px;
-    background-color: #edf1f1f8; /* Yellow background */
+    background-color: #edf1f1f8; 
     color: black;
     text-align: center;
     position: fixed;
@@ -14,9 +14,9 @@
   
   .footer-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse ; 
     align-items: center;
-    gap: 10px;
+    gap: 0px;
   }
   
   .social-links {

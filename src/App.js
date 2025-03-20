@@ -19,26 +19,30 @@ function App() {
       .then(data => setProjects(data));
   }, []);
 
-  function NewProjectProject(newProject) {
+  function addProject(newProject) {
     setProjects([...projects, newProject]);
   }
 
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contacts />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/add-project" element={<NewProjectProject addProject={NewProject} />} />
-        <Route path="/portfolio" element={<Portfolio projects={projects} />} />
-      </Routes>
-
+      <div className="app-container">
+        <Navbar />
+        
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contacts />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/add-project" element={<NewProject addProject={addProject} />} />
+            <Route path="/portfolio" element={<Portfolio projects={projects} />} />
+          </Routes>
+        </div>
+        
+      </div>
     </Router>
   );
 }
 
 export default App;
-

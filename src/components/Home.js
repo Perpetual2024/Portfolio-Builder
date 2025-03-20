@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Footer from './Footer';
+import Footer from './Footer.js';
 
 function Home() {
-  const [home, setHome] = useState(null); // Initialize with null to avoid undefined errors
+  const [home, setHome] = useState(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch(`https://backend-portfolio-builder.onrender.com/home`) 
       .then(response => response.json())
@@ -20,15 +21,23 @@ function Home() {
     <div className="hero">
       <div className="hero-overlay">
         <div className="hero-content">
-            {home ? <h1>{home.welcomeMessage}</h1> : <p>Loading...</p>}
-            {home ? <h1>{home.introduction}</h1> : <p>Loading...</p>}
-            <button onClick={handleNavigateToSignUp}>Get Started</button>
-
-            
-        </div>
+          {home ? (
+            <>
+              <h1>{home.welcomeMessage}</h1>
+              <p>{home.introduction}</p>
+            </>
+          ) : (
+            <p>Loading...</p>
+          )}
+          <button onClick={handleNavigateToSignUp} className="hero-button">
+            Get Started
+          </button>
+         
+        </div> 
+        <Footer />
       </div>
-      <Footer />
-    </div>
+     
+    </div> 
     
   );
 }
